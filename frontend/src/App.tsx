@@ -11,30 +11,24 @@ function App() {
 
   const [books, setBooks] = useState<Book[]>([]);
 
-  /*
     useEffect(() => {
-        axios.get("http://localhost:8080/book")
+
+        axios.get("/book")
             .then(response => response.data)
             .then(data => setBooks(data))
             .catch(console.error)
     }, [])
-*/
 
-    useEffect(() => {
-        fetch("http://localhost:8080/book")
-            .then(response => response.json())
-            .then(data => setBooks(data))
-            .catch(console.error)
-    }, [])
 
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-          Neue Fische Library
+          My Little Library
+          <BookOverview books={books} />
       </header>
 
-       <BookOverview books={books} />
+
     </div>
   );
 }
